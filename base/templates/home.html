@@ -1,0 +1,15 @@
+{% extends 'layout/main.html' %}
+
+{%block content%}
+<head>
+    <link rel="stylesheet" src="">
+</head>
+<h1>estoy en el home</h1>
+{% for producto in productos%}
+
+    <h2>{{producto.nombre}}</h2>
+    <img src="{{producto.imagen}}" >
+    
+
+{% endfor %}
+{%endblock%}

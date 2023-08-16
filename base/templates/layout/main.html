@@ -1,0 +1,51 @@
+<DOCTYPE html>
+    <html lang="es">
+        <head>
+            <meta charset="utf-8"/>
+            <title>Mi Pagina</title>
+            <link rel="stylesheet"  href="style.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+        </head>
+        <body>
+            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+                <div class="container-fluid">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Navegación de palanca">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hogar
+                          </font></font><span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(actual)</font></font></span>
+                        </a>
+                      </li>
+
+                      {% if request.user.is_authenticated%} 
+                        <li class="nav-item">
+                          <a class="nav-link" href="/post"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nueva tarea</font></font></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="/logout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cerrar sesión</font></font></a>
+                        </li>
+                      {%else%}
+                        <li class="nav-item">
+                          <a class="nav-link" href="/login"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Login</font></font></a>
+                        </li>
+                      {%endif%}
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            <div >
+                <div id ='content'>
+                    {% block content %}
+
+                    {% endblock %}
+
+                </div>
+             </div>
+        </body>
+    </html>
