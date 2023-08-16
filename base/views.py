@@ -8,5 +8,5 @@ def home(request):
     productos=Producto.objects.all()
     return render(request,'home.html',{'productos':productos})
 
-def ejemplo(request):
-    return HttpResponse('<p>ejemplo</p>')
+def login(request):
+    return render(request,'login.html')

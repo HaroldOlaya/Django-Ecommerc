@@ -1,0 +1,44 @@
+{% extends 'layout/main.html' %}
+
+{%block content%}
+<head>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css'%}">
+</head>
+<body>
+    <div class='back'></div>
+    <div class='login'>
+        <div class='content'>
+            <h2 class="p">Bienvenidos</h2>
+            <h3 class="p">Nombre del sitio web</h3>
+            <p class="p">Este es el sitio desarrollado por medio de Django</p>
+            <div class='icon'>
+                <i class="fa-brands fa-instagram"></i> 
+                <i class="fa-brands fa-facebook"></i> 
+                <i class="fa-brands fa-twiter"></i> 
+                <i class="fa-brands fa-github"></i> 
+            </div>
+        </div>
+        <d class="home">
+            <div class="account">
+                <h2> Iniciar sesión</h2>
+            </div>
+                <div class="input">
+                    <input type="text" placeholder="Usuario"class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
+            <div class="input">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Contraseña"class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="input">
+                <input type="submit" class="button" value= "Sign Up">
+            </div>
+            <div class= "log">
+                <p>Olvidaste la contraseña?</p>
+                <a href="#">log in here </a>
+            </div>
+        </div>
+    </div>    
+</body>
+
+{%endblock%}

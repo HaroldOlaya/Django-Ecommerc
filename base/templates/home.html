@@ -2,14 +2,11 @@
 
 {%block content%}
 <head>
-    <link rel="stylesheet" src="">
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css'%}">
 </head>
-<h1>estoy en el home</h1>
+<body>
+</body>
 {% for producto in productos%}
-
-    <h2>{{producto.nombre}}</h2>
-    <img src="{{producto.imagen}}" >
-    
-
 {% endfor %}
 {%endblock%}

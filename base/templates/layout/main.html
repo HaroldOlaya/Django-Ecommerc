@@ -3,7 +3,6 @@
         <head>
             <meta charset="utf-8"/>
             <title>Mi Pagina</title>
-            <link rel="stylesheet"  href="style.css">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cyborg/bootstrap.min.css" integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2" crossorigin="anonymous">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -25,10 +24,10 @@
 
                       {% if request.user.is_authenticated%} 
                         <li class="nav-item">
-                          <a class="nav-link" href="/post"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nueva tarea</font></font></a>
+                          <a class="nav-link" href="/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nueva tarea</font></font></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="/logout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cerrar sesión</font></font></a>
+                          <a class="nav-link" href="/login"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cerrar sesión</font></font></a>
                         </li>
                       {%else%}
                         <li class="nav-item">
