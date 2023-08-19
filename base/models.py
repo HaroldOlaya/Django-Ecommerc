@@ -8,6 +8,7 @@ class Producto(models.Model):
     cantidad = models.PositiveIntegerField()
     updated = models.DateField(auto_now=True)
     imagen = models.TextField()
+    precio= models.PositiveIntegerField()
     
     def __str__(self):
         return  self.nombre
@@ -20,4 +21,11 @@ class Promocion(models.Model):
     
     def __str__(self):
         return ("Nombre del producto: "+self.nombre)
+    
+class Marcas(models.Model):
+    nombre=models.TextField()
+    logo=models.TextField()
+    
+    def __str__(self):
+        return(self.nombre)
     

@@ -3,10 +3,35 @@
 {%block content%}
 <head>
     {%load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'home.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'inicio.css'%}">
 </head>
 <body>
+    <div class = "central">
+            <div class="centro">
+                <div class="marcas">
+                    {%for marca in marcas %}
+                    <div class="card">
+                        <div class="card__content">
+                            <img src={{marca.logo}}>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+                <div class="logo">
+                    <img src="{% static 'logo principal.PNG'%}">
+                </div>
+            </div>
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="face front">Cree</div>
+                    <div class="face back">Piensa</div>
+                    <div class="face right">Sueña</div>
+                    <div class="face left">Persevera</div>
+                    <div class="face top">Lucha</div>
+                    <div class="face bottom">Sonrie</div>
+                </div>
+            </div>
+        
+    </div> 
 </body>
-{% for producto in productos%}
-{% endfor %}
 {%endblock%}
