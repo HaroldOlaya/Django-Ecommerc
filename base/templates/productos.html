@@ -1,8 +1,30 @@
 {% extends 'layout/main.html' %}
 
 {%block content%}
-{%for producto in productos%}
-<h1>{{producto.nombre}}</h1>
-<img src="{{producto.imagen}}">
-{%endfor%}
+<head>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'productos.css'%}">
+</head>
+<body>
+    <div class="principal">
+        {%for producto in productos%}
+        <div class="card">
+           <img src="{{producto.imagen}}">
+            <div class="card__content">
+                <div>
+              <p class="card__title">{{producto.nombre}}</p>
+              <p class="card__description">Precio:${{producto.precio}}</p>
+              <p class="card__description">Cantidad disponible:{{producto.cantidad}}</p>
+              <p class="card__description">Fecha de publicacion:{{producto.updated}}</p>
+                </div>
+                <br>
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="button" class="btn btn-outline-primary">Comprar</button>
+                    <button type="button" class="btn btn-outline-warning"><a href="/crear/{{producto.id}}">Editar</a></button>
+                </div>
+            </div>
+        </div>
+        {%endfor%}   
+    </div>
+</body>
 {%endblock%}

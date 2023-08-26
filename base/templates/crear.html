@@ -2,11 +2,63 @@
 {%block content%}
 <head>
     {%load static%}
-    <link rel="stylesheet" type="text/css" href="{% static 'formulario.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'form.css'%}">
 </head>
 <body>
-
-
-
+    <div class="tamaño">
+        <form method="POST" action ="" class="form" >
+            {% csrf_token %}
+            <p class="title">Registrar nuevo vehículo </p>
+            {% if producto is not None%}
+                <input type="number" value="{{producto.id}}" name="id">
+            {%endif%}
+            <p class="message">Complete todos los campos </p>
+                <div class="flex">
+                <label>
+                    <input required=""  name="color"placeholder="" type="text" class="input" 
+                    {% if producto is not None%}
+                        value="{{producto.color}}"
+                    {%endif%}
+                    >
+                    <span>Color</span>
+                </label>
+        
+                <label>
+                    <input required="" placeholder="" name="cantidad" type="number" class="input"
+                    {% if producto is not None%}
+                        value="{{producto.cantidad}}"
+                    {%endif%}>
+                    <span>Cantidad</span>
+                </label>
+            </div>  
+                    
+            <label>
+                <input required="" placeholder="" type="text" name="nombre" class="input"
+                {% if producto is not None%}
+                        value="{{producto.nombre}}"
+                    {%endif%}
+                >
+                <span>Nombre</span>
+            </label> 
+                
+            <label>
+                <input required="" placeholder="" type="text" name="imagen" class="input"
+                {% if producto is not None%}
+                    value="{{producto.imagen}}"
+                {%endif%}
+                >
+                <span>Url de la imagen</span>
+            </label>
+            <label>
+                <input required="" placeholder="" type="number" name="precio"class="input"
+                {% if producto is not None%}
+                    value="{{producto.precio}}"
+                {%endif%}>
+                <span>Precio</span>
+            </label>
+            <button class="submit">Submit</button>
+        </form>
+    </div>
 </body>
+
 {%endblock%}

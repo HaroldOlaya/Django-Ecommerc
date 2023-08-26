@@ -1,3 +1,10 @@
+body{
+  position:relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("http://4.bp.blogspot.com/-eRrtlEWWBSY/UPLOpxZz5XI/AAAAAAAAyo0/QwsBr-FJOrU/s00/Ferrari-458-Italia-Rojo-1920x1200-Wallpapers-Fondos-HD-de-Carros-Ferrari.jpg");
+  background-size: cover;
+}
 .card {
     width: 190px;
     height: 254px;
