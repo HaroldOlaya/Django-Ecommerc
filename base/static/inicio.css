@@ -47,7 +47,8 @@ body{
 .central{
     margin-top: none;
     height: 100%;
-    background-color: #000000;
+    background-image: url("http://4.bp.blogspot.com/-eRrtlEWWBSY/UPLOpxZz5XI/AAAAAAAAyo0/QwsBr-FJOrU/s00/Ferrari-458-Italia-Rojo-1920x1200-Wallpapers-Fondos-HD-de-Carros-Ferrari.jpg");
+    background-size: cover;
     display: flex;
     align-content: center;
     justify-content: center;
