@@ -19,7 +19,20 @@ def loginPage(request):
             login(request,user)
             return redirect("/")
     return render(request,'login.html')
-
+def logoutPage(request):
+    logout(request)
+    return redirect("/")
+def registro (request):
+    if (request.method=="POST"):
+        username=request.POST.get("username")
+        nombre=request.POST.get("nombre")
+        email=request.POST.get("email")
+        contraseña=request.POST.get("contraseña")
+        confirmar_contraseña=request.POST.get("confirmar_contraseña")
+        if(contraseña==confirmar_contraseña):
+            User.objects.create_user(username,first_name=nombre,email=email,password=contraseña)
+        return redirect ('/login')
+    return render(request,'registro.html')
 def crear(request,id=None):
     if request.method == "POST":
         id=request.POST.get('id')

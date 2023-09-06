@@ -1,0 +1,49 @@
+{% extends 'layout/main.html' %}
+{%block content%}
+<head>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'regis.css'%}">
+</head>
+<body>
+<div= class"todo">
+    <div class="container">
+        <div class="video">
+            <video muted autoplay loop ><source src={% static 'Need.mp4'%} type="video/mp4"></video>
+        </div>
+    </div>
+    <div class="formulario">
+        <form class="form" method="POST"action="">
+            {% csrf_token %}
+            <p class="title">Registrar usuario </p>
+            <p class="message">Complete todos los campos </p>
+                <div class="flex">
+                <label>
+                    <input name="username"required="" placeholder="" type="text" class="input">
+                    <span>Usuario</span>
+                </label>
+            </div>  
+            <label>
+                <input name="nombre"required="" placeholder="" type="text" class="input">
+                <span>Nombre</span>
+            </label> 
+            <label>
+                <input name="email"required="" placeholder="" type="email" class="input">
+                <span>Email</span>
+            </label> 
+                
+            <label>
+                <input name="contraseña" required="" placeholder="" type="password" class="input">
+                <span>Contraseña</span>
+            </label>
+            <label>
+                <input name="confirmar_contraseña"required="" placeholder="" type="password" class="input">
+                <span>Confirmar contraseña</span>
+            </label>
+            
+            <button class="submit">Crear usuario</button>
+           
+        </form>
+    </div>
+</div>
+</body>
+{%endblock%}
