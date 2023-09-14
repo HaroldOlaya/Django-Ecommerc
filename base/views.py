@@ -1,10 +1,14 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+
 # Create your views here.
 
 from .models import Marcas,Producto
 
+def api(request):
+
+    return render(request,'api.html')
 def home(request):
     marcas=Marcas.objects.all()
     return render(request,'home.html',{'marcas':marcas})
@@ -42,16 +46,19 @@ def crear(request,id=None):
                 cantidad=request.POST.get('cantidad'),
                 nombre=request.POST.get('nombre'),
                 imagen=request.POST.get('imagen'),
-                precio=request.POST.get('precio')
+                precio=request.POST.get('precio'),
+                user=request.user
             )
+            return redirect('/productos')
         else:
             p=Producto.objects.get(id=id)
-            p.color=request.POST.get('color')
-            p.cantidad=request.POST.get('cantidad')
-            p.nombre=request.POST.get('nombre')
-            p.imagen=request.POST.get('imagen')
-            p.precio=request.POST.get('precio')
-            p.save()
+            if (p.user== request.user):
+                p.color=request.POST.get('color')
+                p.cantidad=request.POST.get('cantidad')
+                p.nombre=request.POST.get('nombre')
+                p.imagen=request.POST.get('imagen')
+                p.precio=request.POST.get('precio')
+                p.save()
     context={}
     if id is not None:
          p=Producto.objects.get(id=id)
@@ -59,5 +66,5 @@ def crear(request,id=None):
     return render(request,'crear.html',context)
 
 def productos(request):
-    productos=Producto.objects.all()
+    productos=Producto.objects.order_by('-updated')
     return render (request,'productos.html',{"productos":productos})
