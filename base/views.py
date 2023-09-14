@@ -1,14 +1,27 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
-
+import requests
 # Create your views here.
 
 from .models import Marcas,Producto
 
 def api(request):
 
-    return render(request,'api.html')
+    url = "https://car-data.p.rapidapi.com/cars"
+
+    querystring = {"limit":"30","page":"0"}
+
+    headers = {
+        "X-RapidAPI-Key": "1e21636f54msh6fa12f156e85130p1b551ajsndc63a52bfaf8",
+        "X-RapidAPI-Host": "car-data.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+    datos=response.json()
+    print(type(datos))
+    print(datos)
+    return render(request,'api.html',{'datos':datos})
 def home(request):
     marcas=Marcas.objects.all()
     return render(request,'home.html',{'marcas':marcas})

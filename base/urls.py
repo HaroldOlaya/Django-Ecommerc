@@ -9,5 +9,7 @@ urlpatterns = [
     path('registro/',views.registro),
     path('crear/<int:id>',views.crear),
     path('productos/',views.productos),
-    path('api/',views.api)
+    path('apii/',views.api)
+    
+    
 ]

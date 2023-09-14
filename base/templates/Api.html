@@ -1,5 +1,21 @@
 {% extends 'layout/main.html' %}
-
 {%block content%}
-<h1>ESTA ES LA API</h1>
+<head>
+    {%load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'a.css'%}">
+</head>
+<body>
+    <div class="tamaño">
+        {%for diccionario in datos%}
+        <div class="card">
+            <p class="heading">{{diccionario.model}}</p>
+            <p class="para">Marca: {{diccionario.make}}</p>
+            <p class="para">Año: {{diccionario.year}}</p>
+            <p class="para">Tipo: {{diccionario.type}}</p>
+            <div class="overlay"></div>
+            <button class="card-btn">Comprar</button>
+        </div>
+        {%endfor%}
+    </div>
+</body>
 {%endblock%}
