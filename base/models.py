@@ -30,3 +30,8 @@ class Marcas(models.Model):
     def __str__(self):
         return(self.nombre)
     
+class Pago(models.Model):
+    numeroFactura=models.TextField(null=False)
+    valor=models.IntegerField(null=False)
+    def __str__(self):
+        return (self.numeroFactura)

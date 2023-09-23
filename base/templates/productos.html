@@ -19,7 +19,7 @@
                 </div>
                 <br>
                 <div class="d-grid gap-2 d-md-block">
-                    <button type="button" class="btn btn-outline-primary">Comprar</button>
+                    <button type="button" class="btn btn-outline-primary"><a href="\compra">Comprar</a></button>
                     {% if request.user.is_authenticated and request.user == producto.user%}
                         <button type="button" class="btn btn-outline-warning"><a href="/crear/{{producto.id}}">Editar</a></button>
                     {%endif%}

@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate,login,logout
 import requests
 # Create your views here.
 
-from .models import Marcas,Producto
+from .models import Marcas,Producto,Pago
 
 def api(request):
 
@@ -39,6 +39,7 @@ def loginPage(request):
 def logoutPage(request):
     logout(request)
     return redirect("/")
+
 def registro (request):
     if (request.method=="POST"):
         username=request.POST.get("username")
@@ -81,3 +82,12 @@ def crear(request,id=None):
 def productos(request):
     productos=Producto.objects.order_by('-updated')
     return render (request,'productos.html',{"productos":productos})
+
+def compra(request):
+    if request.method == "POST":
+        Pago.objects.create(
+            numeroFactura=request.POST.get('factura'),
+            valor=request.POST.get('precio')
+        )
+        return redirect('/productos')
+    return render(request,'comprar.html')

@@ -9,7 +9,8 @@ urlpatterns = [
     path('registro/',views.registro),
     path('crear/<int:id>',views.crear),
     path('productos/',views.productos),
-    path('apii/',views.api)
+    path('apii/',views.api),
+    path('compra/',views.compra)
     
     
 ]
